@@ -25,6 +25,7 @@ Resources:
         ServiceRole: !Ref CodeBuildRole
         Source:
           Type: CODEPIPELINE
+          BuildSpec: deployment-pipeline/buildspec.yml
 
   CodePipeline:
     Type: AWS::CodePipeline::Pipeline
