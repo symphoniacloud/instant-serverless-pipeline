@@ -17,14 +17,14 @@ For a long time, we at Symphonia have believed that for any 'real' engineering p
 
 This small project gets you started with all of the above on AWS, for a Serverless app, so that you can start concentrating on your code, as follows:
 
-* For Source Control we stub with S3 for a simple flow, but also provide a Github hook
+* For Source Control we stub with S3 for demo / training purposes, but will soon provide a Github version for more realistic workflows
 * For code we give a starter lambda function in `lib\index.js`. This function makes a call to a remote resource, and returns a value based on that call.
 * An example unit test is included at `test\indexTest.js`
 * Dependency management is provided by NPM in `package.json`
 * For build, also use the NPM script. See the tasks in the `manual-deploy.sh` file
-* Packaging is a matter of simple zipping, defined in the build script.
+* Packaging is a matter of simple zipping, defined in `package.json` .
 * Deployment is via the [Serverless Application Model](https://github.com/awslabs/serverless-application-model) (SAM) and [CloudFormation](https://aws.amazon.com/cloudformation/), as defined in the `sam.yml` file
-* Continuous Integration is supplied by [CodePipeline](https://aws.amazon.com/codepipeline/) and [CodeBuild](https://aws.amazon.com/codebuild/), defined in the `deployment-pipeline/s3-source-pipeline.yml` file or *TODO-Github-version*, triggered by an update to S3 or Github, and subsequent use of `deployment-pipeline/buildspec.yml`
+* Continuous Integration is supplied by [CodePipeline](https://aws.amazon.com/codepipeline/) and [CodeBuild](https://aws.amazon.com/codebuild/), defined in the `deployment-pipeline/s3-source-pipeline.yml` file or *TODO-Github-version*, triggered by an update to S3 or *TODO-Github*, and subsequent use of `deployment-pipeline/buildspec.yml`
 * Automated Deployment is also supplied by CodePipeline, integrated with SAM
 
 # Using the skeleton
@@ -33,11 +33,11 @@ In your local environment make sure you have the AWS CLI setup, with a user with
 
 ## Using S3 as 'source control'
 
-1. Clone this repo, and run `create-s3-source-pipeline.sh` .
+1. Clone this repo, change directory to `deployment-pipeline`, and run `create-s3-source-pipeline.sh` .
 2. Find the `instant-serverless-pipeline` stack in CloudFormation and wait for it to be ready.
-3. Run `commit-code-s3.sh`
+3. Change directory back to the project root and run `commit-code-s3.sh`
 4. Find your pipeline in CodePipeline, and wait for it to start (triggered by S3, might take a minute) and complete.
-5. Run `pipeline-test.sh` to verify your application
+5. Run `deployment-pipeline/pipeline-test.sh` to verify your application
 6. Start programming!
 
 ## Deploying manually
@@ -68,6 +68,7 @@ If you want to deploy the application manually, without CodePipeline, use the `m
     ```
 # TODO
 
+* Github version
 * Tighten up privs in pipeline definition
 
 
