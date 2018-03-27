@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - pip install --upgrade awscli # https://github.com/awslabs/serverless-application-model/issues/93
+  pre_build:
+    commands:
+      - npm install
+  build:
+    # Consider putting a clean, then install --production here, after running tests
+    commands:
+      - npm run test
+      - npm run dist
+  post_build:
+    commands:
+      - aws cloudformation package --template-file sam.yml
+                                   --s3-bucket ${CFN_PACKAGE_S3_BUCKET}
+                                   --output-template-file packaged-sam.yml
+
+artifacts:
+  type: zip
+  files:
+    - packaged-sam.yml

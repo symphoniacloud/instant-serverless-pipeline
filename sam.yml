@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Instant Serverless App
+
+Resources:
+
+  InstantLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lib/index.handler
+      Runtime: nodejs6.10
+      MemorySize: 256
+      Timeout: 10
+      CodeUri: target/lambda.zip
