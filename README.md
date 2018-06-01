@@ -1,4 +1,7 @@
 # instant-serverless-pipeline
+
+**This is still 'early access' - possibly a little bumpy still!**
+
 Create a CodePipeline for a serverless app with one hand tied behind your back.
 
 One of the chief benefits of Serverless apps is how quickly you can start a new application. That is, how long does it take to go from idea to production? And how long does it take to do that in a way that isn't a complete hack? We think you can do it very quickly. Without having to cut corners.
