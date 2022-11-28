@@ -1,6 +1,13 @@
 # instant-serverless-pipeline
 
-**This is still 'early access' - possibly a little bumpy still!**
+# This repo is now archived and unmaintained
+
+For alternatives see:
+
+* https://github.com/symphoniacloud/github-codepipeline
+* https://github.com/symphoniacloud/coffee-store-v2
+
+_Previous content:_
 
 Create a CodePipeline for a serverless app with one hand tied behind your back.
 
